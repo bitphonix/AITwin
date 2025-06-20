@@ -1,56 +1,81 @@
-AITwin
-AITwin is a voice-enabled AI chatbot designed to reflect the personality, background, and technical journey of Tanishk Soni, a final-year B.Tech student in Computer Science with a specialization in Artificial Intelligence & Machine Learning at The NorthCap University, Gurugram, India. Built with Streamlit, Google Cloud Speech-to-Text, Text-to-Speech, and Gemini AI, AITwin allows users to upload audio questions (WAV, MP3, or M4A) and receive spoken responses as if in an interview with Tanishk.
-Features
+# 🤖 AITwin – Your AI-Powered Twin for Interviews
 
-Voice Interaction: Upload audio files to ask questions and receive spoken responses.
-Personalized Responses: Answers reflect Tanishk’s life story, projects, and superpower (deep focus).
-Conversation History: View and download a log of questions and answers in JSON format.
-Robust Audio Processing: Supports WAV, MP3, and M4A files with FFmpeg preprocessing for reliable transcription.
-Polished UI: Clean layout with progress bars, audio playback, and duration displays.
+**AITwin** is a voice-enabled AI chatbot designed to reflect the personality, background, and technical journey of **Tanishk Soni**, a final-year B.Tech student in Computer Science with a specialization in Artificial Intelligence & Machine Learning at The NorthCap University, Gurugram, India.
 
-Sample Questions
+Built with **Streamlit**, **Google Cloud Speech-to-Text**, **Text-to-Speech**, and **Gemini AI**, AITwin allows users to upload audio questions (WAV, MP3, or M4A) and receive spoken responses as if in an interview with Tanishk.
 
-What should we know about your life story in a few sentences?
-What’s your #1 superpower?
-What are the top 3 areas you’d like to grow in?
-What misconception do people have about you?
-How do you push your boundaries?
+---
 
-Prerequisites
+## 🌟 Features
 
-Python 3.8+
-FFmpeg (for audio processing)
-Google Cloud account with Speech-to-Text and Text-to-Speech APIs enabled
-Gemini AI API key
+* **Voice Interaction**: Upload audio files to ask questions and receive spoken responses.
+* **Personalized Responses**: Answers reflect Tanishk’s life story, projects, and superpower (deep focus).
+* **Conversation History**: View and download a log of questions and answers in JSON format.
+* **Robust Audio Processing**: Supports WAV, MP3, and M4A files with FFmpeg preprocessing for reliable transcription.
+* **Polished UI**: Clean layout with progress bars, audio playback, and duration displays.
 
-Installation
+---
 
-Clone the Repository:
+## ❓ Sample Questions
+
+* What should we know about your life story in a few sentences?
+* What’s your #1 superpower?
+* What are the top 3 areas you’d like to grow in?
+* What misconception do people have about you?
+* How do you push your boundaries?
+
+---
+
+## 🔧 Prerequisites
+
+* Python 3.8+
+* FFmpeg (for audio processing)
+* Google Cloud account with Speech-to-Text and Text-to-Speech APIs enabled
+* Gemini AI API key
+
+---
+
+## 🚀 Installation
+
+### Clone the Repository
+
+```bash
 git clone https://github.com/bitphonix/AITwin.git
 cd AITwin
+```
 
+### Set Up a Virtual Environment (optional but recommended)
 
-Set Up a Virtual Environment (optional but recommended):
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+```
 
+### Install Dependencies
 
-Install Dependencies:
+```bash
 pip install -r requirements.txt
+```
 
+### Install FFmpeg
 
-Install FFmpeg:
+* **Windows**: Download from FFmpeg’s site or `choco install ffmpeg`
+* **Mac**: `brew install ffmpeg`
+* **Linux**: `sudo apt-get install ffmpeg`
 
-Windows: Download from FFmpeg’s site or choco install ffmpeg.
-Mac: brew install ffmpeg.
-Linux: sudo apt-get install ffmpeg.
+---
 
+## 🔐 Configure Secrets
 
-Configure Secrets:Create a .streamlit/secrets.toml file with your API keys:
-[gemini]
-api_key = "your_gemini_api_key"
+Create a `.streamlit/secrets.toml` file with your API keys:
 
-[gcp]
+```toml
+GEMINI_API_KEY = "your_gemini_api_key"
+
+[gcp_service_account]
 type = "service_account"
 project_id = "your_gcp_project_id"
 private_key_id = "your_private_key_id"
@@ -61,46 +86,70 @@ auth_uri = "https://accounts.google.com/o/oauth2/auth"
 token_uri = "https://oauth2.googleapis.com/token"
 auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs"
 client_x509_cert_url = "your-client-x509-cert-url"
+```
 
+---
 
+## 🔄 Usage
 
-Usage
+### Run Locally
 
-Run Locally:streamlit run app.py
+```bash
+streamlit run app.py
+```
 
+1. Open your browser to `http://localhost:8501`
+2. Upload an audio file (WAV, MP3, or M4A, <10MB)
+3. Click "Process Audio" to hear AITwin’s response
+4. View and download conversation history in the sidebar
 
-Open your browser to http://localhost:8501.
-Upload an audio file (WAV, MP3, or M4A, <10MB).
-Click "Process Audio" to hear AITwin’s response.
-View and download conversation history in the "Conversation History" section.
+---
 
-Deployment to Streamlit Cloud
+## ☁️ Deployment to Streamlit Cloud
 
-Push the repository to GitHub (ensure .gitignore excludes .streamlit/secrets.toml).
-Create a Streamlit Cloud account and link your GitHub repo.
-Add packages.txt with:ffmpeg
+1. Push the repository to GitHub (ensure `.gitignore` excludes `.streamlit/secrets.toml`)
+2. Create a Streamlit Cloud account and link your GitHub repo
+3. Add `packages.txt` with:
 
+```
+ffmpeg
+```
 
-Add secrets in Streamlit Cloud’s settings (same as secrets.toml).
-Deploy the app.
+4. Add secrets in Streamlit Cloud’s settings (same as secrets.toml)
+5. Deploy the app
 
-Project Structure
+---
+
+## 📂 Project Structure
+
+```
 AITwin/
-├── app.py               # Main Streamlit application
+├── app.py                 # Main Streamlit application
 ├── .streamlit/
-│   ├── config.toml      # Streamlit theme configuration
-├── requirements.txt     # Python dependencies
-├── packages.txt         # System dependencies for Streamlit Cloud
-├── .gitignore           # Excludes sensitive files
-├── README.md            # Project documentation
+│   └── config.toml        # Streamlit theme configuration
+├── requirements.txt       # Python dependencies
+├── packages.txt           # System dependencies for Streamlit Cloud
+├── .gitignore             # Excludes sensitive files
+├── README.md              # Project documentation
+```
 
-Notes
+---
 
-Audio Files: For best results, use WAV files (16kHz, mono) to avoid format issues.
-API Costs: Google Cloud APIs and Gemini may incur costs; check your quotas.
-Contributing: Feel free to open issues or PRs to improve AITwin!
+## ⚠️ Notes
 
-License
+* **Audio Files**: For best results, use WAV files (16kHz, mono) to avoid format issues.
+* **API Costs**: Google Cloud APIs and Gemini may incur costs; check your quotas.
+* **Contributing**: Feel free to open issues or PRs to improve AITwin!
+
+---
+
+## 📄 License
+
 MIT License
 
-Developed by Tanishk Soni. Connect with me on GitHub or LinkedIn!
+---
+
+Developed by Tanishk Soni. Connect with me on [GitHub](https://github.com/bitphonix) or [LinkedIn](https://www.linkedin.com/in/tanishk-soni/)
+
+```
+```
