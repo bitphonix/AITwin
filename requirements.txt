@@ -1,0 +1,8 @@
+streamlit
+streamlit-webrtc
+google-cloud-speech
+google-cloud-texttospeech
+google-generativeai
+pydub
+streamlit-webrtc
+av
