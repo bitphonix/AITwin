@@ -149,7 +149,7 @@ MIT License
 
 ---
 
-Developed by Tanishk Soni. Connect with me on [GitHub](https://github.com/bitphonix) or [LinkedIn]([https://www.linkedin.com/in/tanishk-soni/](https://www.linkedin.com/in/tanishk-soni-a94077239/))
+Developed by Tanishk Soni. Connect with me on [GitHub](https://github.com/bitphonix) or [LinkedIn](https://www.linkedin.com/in/tanishk-soni-a94077239/)
 
 ```
 ```
